@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      
+      Ionic Blank
+      
+      
+    </ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-content padding>
+
+        <div *ngIf="brag == true">
+            <h2>I'm awesome!</h2>
+        </div>
+    
+        
+  <ion-input placeholder="Introduce el Nombre"></ion-input>
+  <ion-input placeholder="Introduce la descripción"></ion-input>
+  <br>
+  <ion-list *ngIf ="oculto == false">
+      <ion-label style>Categoria</ion-label>
+    <ion-radio-group>
+      <ion-item>
+          <ion-label>Tecnologia</ion-label>
+          <ion-radio slot="end" checked="true" (click)="cambiar_tecnologia()" ></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>Hogar</ion-label>
+            <ion-radio slot="end" checked="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+              <ion-label>Inmobiliaria</ion-label>
+              <ion-radio slot="end" checked="true" (click)="cambiar_inmobiliaria()"></ion-radio>
+        </ion-item>
+        <ion-item>
+                <ion-label>Motor</ion-label>
+                <ion-radio slot="end" checked="true" (click)="cambiar_motor()"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-button expand="block" (click)="cambiar_oculto()">Mostrar o Ocultar</ion-button>
+
+    <ion-list *ngIf ="motor == true">
+      <ion-radio-group>
+          <ion-item>
+            <ion-label>Coche</ion-label>
+            <ion-radio slot="end" checked="true"></ion-radio>
+      </ion-item>
+      <ion-item>
+              <ion-label>Moto</ion-label>
+              <ion-radio slot="end" checked="true"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+      <ion-input placeholder="Introduce los kms" type="number"></ion-input>
+      <ion-input placeholder="Introduce el año del vehiculo" type="number"></ion-input>
+      </ion-list>
+      <ion-list *ngIf ="inmobiliaria == true">
+          <ion-label style>Metros Cuadrados Vivienda</ion-label>
+          <ion-input type="number" value="70"></ion-input>
+          <ion-label style>Numero Baños</ion-label>
+          <ion-input type="number" value="1"></ion-input>
+          <ion-label style>Numero Habitaciones</ion-label>
+          <ion-input type="number" value="1"></ion-input>
+          <ion-input placeholder="Localidad"></ion-input>
+      </ion-list>
+      <ion-list *ngIf ="tecnologia == true">
+          <ion-label>Selecciona el estado del producto</ion-label>
+          <br>
+          <ion-item>  
+          <ion-radio-group>
+            <ion-item>
+                <ion-label>Perfecto Estado</ion-label>
+                <ion-radio slot="end" checked="true"></ion-radio>
+        </ion-item>
+            <ion-item>
+                <ion-label>Usado</ion-label>
+                <ion-radio slot="end" checked="true"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          </ion-item>
+      </ion-list>
+  <ion-button color="Primary">Primary</ion-button>
+  <div class="ion-padding">
+    The world is your oyster.
+    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  </div>
+</ion-content>
