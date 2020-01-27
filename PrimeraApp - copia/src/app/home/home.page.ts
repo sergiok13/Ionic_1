@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Ibocadillo, IInmobiliaria, IMotor, ITecnologia } from '../interfaces';
+import { InmobiliariaService } from '../services/Inmobiliaria.service';
+import { MotorService } from '../services/Motor.service';
+import { TecnologiaService } from '../services/Tecnologia.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +17,6 @@ export class HomePage {
   tecnologia : boolean = false;
   nombre: string;
   estado: string;
-  
   n_banyos : number;
   metros: number;
   habita: number;
@@ -23,8 +25,15 @@ export class HomePage {
   vehiculo : string;
   anyo : number;
   km : number;
-  constructor() {}
+  
 
+  constructor(  private _inmobiliariaservice : InmobiliariaService, private _motorservice : MotorService, private _tecnologiaservice : TecnologiaService) {}
+
+  ngOnInit(){
+    this.Inmobiliaria = this._inmobiliariaservice.getInmobiliaria();
+    this.Motor = this._motorservice.getMotor();
+    this.Tecnologia = this._tecnologiaservice.getTecnologia();
+  }
   cambiar_oculto() : void{
     this.oculto = !this.oculto; 
   }
@@ -82,48 +91,9 @@ export class HomePage {
     this.vehiculo = "Coche";
   }
 
-  Inmobiliaria: (IInmobiliaria[]) = [
-    {
-      "Id" : 1,
-      "Tipo" : "Inmobiliaria",
-      "Metros_Cuadrados" : 70,
-      "Habitaciones" : 2,
-      "Banyos" : 1,
-      "Localidad" : "Catarroja",
-    },
-    {
-      "Id" : 2,
-      "Tipo" : "Inmobiliaria",
-      "Metros_Cuadrados" : 95,
-      "Habitaciones" : 3,
-      "Banyos" : 2,
-      "Localidad" : "Benetusser",
-    },
+  Inmobiliaria: (IInmobiliaria[]);
 
-  ]
-
-  Motor : IMotor[] =[
-    {
-      "Id" : 3,
-      "Tipo" : "Motor",
-      "Tipo_Vehiculo" : "Moto",
-      "Anyo_Vehiculo" : 2017,
-      "Kilometros_Recorridos" : 30000,
-    },
-    {
-      "Id" : 5,
-      "Tipo" : "Motor",
-      "Tipo_Vehiculo" : "Coche",
-      "Anyo_Vehiculo" : 2018,
-      "Kilometros_Recorridos" : 32000,
-    }
-  ]
-  Tecnologia : (ITecnologia[] | Ibocadillo[]) =[
-    {
-      "Id" : 4,
-      "Tipo" : "Tecnologia",
-      "Estado_Producto" : "Usado",
-    },
-  ]
+  Motor : (IMotor[]);
+  Tecnologia : (ITecnologia[] | Ibocadillo[]);
 }
 

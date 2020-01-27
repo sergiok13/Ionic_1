@@ -48,7 +48,7 @@
         </ion-item>
       </ion-radio-group>
     </ion-list>
-
+    
     <ion-button expand="block" (click)="cambiar_oculto()">Mostrar o Ocultar</ion-button>
     <ion-card>
       <ion-card-title>{{nombre}}</ion-card-title>
@@ -145,6 +145,7 @@
             <br>
           </ion-card-title>
         </ion-card-header>
+        <ion-button expand="block" [routerLink]="['/creacion1/',Item.Id,Item.Metros_Cuadrados,Item.Habitaciones,Item.Banyos]" routerDirection="forward">Detalle</ion-button>
       </ion-card>
       <ion-card *ngFor="let Item of Motor">
         <ion-card-header>
@@ -160,6 +161,7 @@
             Kilometros Recorridos {{Item.Kilometros_Recorridos}}
             <br>
           </ion-card-title>
+          <ion-button expand="block" [routerLink]="['/creacion2/',Item.Id,Item.Tipo_Vehiculo,Item.Anyo_Vehiculo,Item.Kilometros_Recorridos]" routerDirection="forward">Detalle</ion-button>
         </ion-card-header>
       </ion-card>
       <ion-card *ngFor="let Item of Tecnologia">
@@ -172,6 +174,7 @@
             Estado Producto {{Item.Estado_Producto}}
           </ion-card-title>
         </ion-card-header>
+        <ion-button expand="block" [routerLink]="['/creacion3/',Item.Id,Item.Estado_Producto]" routerDirection="forward">Detalle</ion-button>
       </ion-card>
       <ion-card>
         <ion-card-title>{{motor.Kilometros_Recorridos}} {{motor.Anyo_Vehiculo}}</ion-card-title>
