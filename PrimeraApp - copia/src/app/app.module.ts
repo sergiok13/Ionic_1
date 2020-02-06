@@ -14,6 +14,10 @@ import {InmobiliariaService} from './services/Inmobiliaria.service';
 import {MotorService} from './services/Motor.service';
 import {TecnologiaService} from './services/Tecnologia.service';
 
+import {AngularFireModule} from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import {environment} from "../environments/environment";
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
