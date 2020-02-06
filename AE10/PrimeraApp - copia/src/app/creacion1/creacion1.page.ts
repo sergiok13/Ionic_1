@@ -10,17 +10,22 @@ import { from } from 'rxjs';
 export class Creacion1Page implements OnInit {
 
   id : number;
+  porducto= [];
   constructor(private _activatedRoute: ActivatedRoute,private _inmobiliariaservice : InmobiliariaService) { }
 
   ngOnInit() {
     this.id = +this._activatedRoute.snapshot.paramMap.get('id');
-    let metros = this._activatedRoute.snapshot.paramMap.get('Metros');
-    let habitaciones = this._activatedRoute.snapshot.paramMap.get('Habitaciones');
-    let banyos = this._activatedRoute.snapshot.paramMap.get('Metros');
+    var ref = this._inmobiliariaservice.getProductos();
+    ref.orderByChild('id').equalTo(this.id).once("value", snapshot=>{
+      snapshot.forEach(child => {
+        let value = child.val()
+        this.porducto.push(value)
+      })
+    })
     console.log("Nivel ID:" + this.id)
-    console.log("Numero de metros:" + metros)
+    /*console.log("Numero de metros:" + metros)
     console.log("Numero de habitaciones:" + habitaciones)
-    console.log("Numero de baños:" + banyos)
+    console.log("Numero de baños:" + banyos)*/
     /*let res = this._inmobiliariaservice.getInmo(this.id);
     console.log("Tiene " + res.Metros_Cuadrados + "metros cuadrados");
     console.log("Tiene " + res.Habitaciones + "habitaciones");

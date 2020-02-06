@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'ae11', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
     path: 'creacion1/:id/:Metros/:Habitaciones/:Banyos',
@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'creacion3/:id/:Estado_Producto',
     loadChildren: () => import('./creacion3/creacion3.module').then( m => m.Creacion3PageModule)
+  },
+  {
+    path: 'ae11',
+    loadChildren: () => import('./ae11/ae11.module').then( m => m.Ae11PageModule)
   },
 ];
 

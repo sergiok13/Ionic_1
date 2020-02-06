@@ -25,16 +25,18 @@ export class HomePage {
   vehiculo : string;
   anyo : number;
   km : number;
-  
-  prodMotor: (Ibocadillo | IMotor)[] = [];
+  id: number;
+  prodMotor: (Ibocadillo | IMotor |IInmobiliaria|ITecnologia)[] = [];
   constructor(  private _inmobiliariaservice : InmobiliariaService, private _motorservice : MotorService, private _tecnologiaservice : TecnologiaService) {}
 
   ngOnInit(){
     //this.Inmobiliaria = this._inmobiliariaservice.getInmobiliaria();
-    let ref = this._motorservice.getProductos();
-    ref.once("value", snapshot => {
-      snapshot.forEach(child =>{
-        console.log("He encontrado " + child.val().Tipo);
+    this.id = 1;
+    var ref = this._inmobiliariaservice.getProductos();
+    ref.orderByChild('id').equalTo(this.id).once("value", snapshot=>{
+      snapshot.forEach(child => {
+        let value = child.val()
+        this.prodMotor.push(value)
       })
     });
     //this.Tecnologia = this._tecnologiaservice.getTecnologia();
@@ -102,5 +104,6 @@ export class HomePage {
   Inmobiliaria: (IInmobiliaria[] | Ibocadillo[]) = [];
   Motor : (IMotor[] | Ibocadillo[]) = [];
   Tecnologia : (ITecnologia[] | Ibocadillo[]) = [];
+  
 }
 
