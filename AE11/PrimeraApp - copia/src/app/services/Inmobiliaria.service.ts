@@ -4,6 +4,7 @@ import { IMotor } from '../interfaces';
 import { ITecnologia } from '../interfaces';
 import {AngularFireDatabase} from '@angular/fire/database';
 import { Ibocadillo } from '../interfaces';
+import { read } from 'fs';
 @Injectable()
 export class InmobiliariaService{
 
@@ -57,9 +58,14 @@ export class InmobiliariaService{
         let ref=this._db.database.ref("Productos");
         ref.push(Productos);
       }
-      getProductos() : firebase.database.Reference{
+      
+    getProductos() : firebase.database.Reference{
         let ref =this._db.database.ref("Productos")
         return ref;
+    }
+    getUsuarios() : firebase.database.Reference{
+      let ref=this._db.database.ref("Usuarios")
+      return ref;
     }
 }
 

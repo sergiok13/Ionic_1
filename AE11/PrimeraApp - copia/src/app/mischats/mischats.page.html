@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>mischats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let Item of Usuarios">
+    {{Item.Nombre}}<br>
+    {{Item.Correo}}
+    <ion-button [routerLink]="['/modificar/',Item.Id]"></ion-button>
+    </ion-card>
+</ion-content>

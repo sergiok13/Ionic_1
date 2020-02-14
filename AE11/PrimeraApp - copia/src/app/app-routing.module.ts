@@ -20,6 +20,14 @@ const routes: Routes = [
     path: 'modificar/:id',
     loadChildren: () => import('./modificar/modificar.module').then( m => m.ModificarPageModule)
   },
+  {
+    path: 'mischats',
+    loadChildren: () => import('./mischats/mischats.module').then( m => m.MischatsPageModule)
+  },
+  {
+    path: 'dentro-chat',
+    loadChildren: () => import('./dentro-chat/dentro-chat.module').then( m => m.DentroChatPageModule)
+  },
 ];
 
 @NgModule({

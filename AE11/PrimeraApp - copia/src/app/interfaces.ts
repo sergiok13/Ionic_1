@@ -19,3 +19,8 @@ export interface IMotor extends Ibocadillo{
     "Anyo_Vehiculo" : number,
     "Kilometros_Recorridos" : number,
 }
+export interface IUSuarios{
+    "Nombre" : string,
+    "Contrasenya " : string,
+    "Correo" : string
+}
