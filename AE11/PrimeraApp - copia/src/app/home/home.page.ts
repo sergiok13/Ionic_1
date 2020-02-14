@@ -29,7 +29,7 @@ export class HomePage {
 
   Productos: (IInmobiliaria[] | Ibocadillo[] | ITecnologia[] | IMotor[]) = [];
 
-  prodMotor2: (Ibocadillo[] | IMotor[] | IInmobiliaria[] | ITecnologia[] ) = [];
+  prodMotor2: (Ibocadillo[] | IMotor[] | IInmobiliaria[] | ITecnologia[]) = [];
   constructor(  private _inmobiliariaservice : InmobiliariaService) {}
   borrar(id : number){
     console.log("Borrado");
@@ -47,7 +47,7 @@ export class HomePage {
     ref2.once("value", snapshot => {
       snapshot.forEach(child =>{
         let value = child.val();
-         this.id_Fire = child.val().Id;
+        this.id_Fire = child.val().Id;
         this.Productos.push(value);
         //console.log("He encontrado" + child.val().Tipo);
         //console.log(this.prodMotor);
