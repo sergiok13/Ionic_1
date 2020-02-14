@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {IInmobiliaria} from '../interfaces';
+import {IInmobiliaria, IUSuarios} from '../interfaces';
 import { IMotor } from '../interfaces';
 import { ITecnologia } from '../interfaces';
 import {AngularFireDatabase} from '@angular/fire/database';
@@ -66,6 +66,10 @@ export class InmobiliariaService{
     getUsuarios() : firebase.database.Reference{
       let ref=this._db.database.ref("Usuarios")
       return ref;
+    }
+    setUsuarios(Usuarios : IUSuarios) {
+      let ref = this._db.database.ref("USuarios")
+      ref.push(Usuarios);
     }
 }
 

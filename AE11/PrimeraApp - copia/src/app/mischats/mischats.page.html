@@ -5,9 +5,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let Item of Usuarios">
+  <ion-button [routerLink]="['/dentro-chat']"  *ngFor="let Item of Usuarios" color="light" expand="block">
+  <ion-card>
     {{Item.Nombre}}<br>
     {{Item.Correo}}
-    <ion-button [routerLink]="['/modificar/',Item.Id]"></ion-button>
+    
     </ion-card>
+  </ion-button>
 </ion-content>

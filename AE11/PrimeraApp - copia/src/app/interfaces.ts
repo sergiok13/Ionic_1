@@ -21,6 +21,6 @@ export interface IMotor extends Ibocadillo{
 }
 export interface IUSuarios{
     "Nombre" : string,
-    "Contrasenya " : string,
+    "Contrasenya" : string,
     "Correo" : string
 }
