@@ -21,6 +21,7 @@ export class HomePage {
   metros: number;
   habita: number;
   localidad: string;
+  megusta: boolean;
 
   vehiculo : string;
   anyo : number;
@@ -32,7 +33,7 @@ export class HomePage {
   ngOnInit(){
     //this.Inmobiliaria = this._inmobiliariaservice.getInmobiliaria();
     this.id = 1;
-    var ref = this._inmobiliariaservice.getProductos();
+    var ref = this._motorservice.getProductos();
     ref.orderByChild('id').equalTo(this.id).once("value", snapshot=>{
       snapshot.forEach(child => {
         let value = child.val()

@@ -17,15 +17,9 @@ export class TecnologiaService{
       getTecno(id : number) : ITecnologia{
         return this.Tecnologia.find(x =>x.Id == id);
     } */
-    /*getProductos() : firebase.database.Reference{
-      let ref =this._db.database.ref("Productos")
-      return ref;
-  }*/
+    
     constructor(private _db: AngularFireDatabase){
 
     }
-    setTecnologia(Tecnologia : ITecnologia){
-      let ref=this._db.database.ref("Productos");
-      ref.push(Tecnologia);
-    }
+    
 }
